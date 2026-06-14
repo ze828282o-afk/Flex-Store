@@ -1,0 +1,181 @@
+:root {
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --netflix-color: #e50914;
+    --iptv-color: #10b981;
+    --premium-color: #8b5cf6;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #38bdf8;
+}
+
+header p {
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* قسم كروت البريميوم */
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    float: left;
+}
+
+.badge-netflix { background-color: rgba(229, 9, 20, 0.2); color: var(--netflix-color); }
+.badge-tidal { background-color: rgba(139, 92, 246, 0.2); color: var(--premium-color); }
+.badge-crunchy { background-color: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+
+.title-netflix { color: var(--netflix-color); margin-top: 0; }
+.title-tidal { color: var(--premium-color); margin-top: 0; }
+.title-crunchy { color: #f59e0b; margin-top: 0; }
+
+.desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+.note { font-size: 0.8rem; color: var(--text-muted); margin-top: 5px; }
+
+.code-box {
+    font-size: 0.85rem;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.btn-telegram {
+    display: block;
+    text-align: center;
+    background-color: #229ED9;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* قسم جدول الـ IPTV */
+.iptv-section {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.iptv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.iptv-header h2 { margin: 0; color: var(--iptv-color); }
+
+.search-box {
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 300px;
+    outline: none;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+th {
+    background-color: rgba(0,0,0,0.2);
+    color: var(--iptv-color);
+}
+
+.copy-btn {
+    background-color: #334155;
+    color: #f1f5f9;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+
+.copy-btn:hover {
+    background-color: #475569;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #10b981;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
+}
