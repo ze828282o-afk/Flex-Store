@@ -3,94 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Z3Z3 Sports | التفعيل الذكي</title>
+    <title>Flex Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
+    <!-- الشعار الرئيسي والاسم سادة -->
     <div class="main-logo-container">
         <a href="https://t.me/Z3Z3Sports" target="_blank" title="اضغط للانضمام لقناة التليجرام">
-            <img src="https://i.imgur.com/v8tZ8gB.png" alt="Z3Z3 Sports Telegram" class="main-logo">
+            <img src="https://img.icons8.com/fluent/150/telegram-app.png" alt="Telegram" class="main-logo">
         </a>
-        <h1>Z3Z3 Sports</h1>
-        <p class="subtitle">اضغط على الشعار فوق للاشتراك بقناتنا، أو اختر لوجو التطبيق بالأسفل للحصول على التفعيل (مرة واحدة يومياً لكل جهاز)</p>
+        <h1>Flex Store</h1>
+        <p class="subtitle">اضغط على الشعار فوق للاشتراك بقناتنا، أو اختر لوجو التطبيق بالأسفل للحصول على حسابك اليومي (حساب واحد لكل جهاز يومياً)</p>
     </div>
 
+    <!-- شبكة لوجوهات التطبيقات -->
     <div class="apps-grid">
         
+        <!-- تطبيق Xtream IPTV -->
         <div class="app-card" id="card-xtream">
-            <div class="logo-wrapper" onclick="revealData('xtream')">
-                <img src="https://i.imgur.com/YwNInOa.png" alt="Xtream IPTV" class="app-logo">
+            <div class="logo-wrapper" onclick="revealOneData('xtream')">
+                <img src="https://img.icons8.com/color/120/iptv.png" alt="Xtream IPTV" class="app-logo">
             </div>
             <h3>Xtream IPTV</h3>
-            <div class="data-box" id="box-xtream">
-                <div class="search-container">
-                    <input type="text" id="iptvSearch" placeholder="ابحث عن سيرفر...">
-                </div>
-                <div class="table-scroll">
-                    <table id="iptvTable">
-                        <thead>
-                            <tr>
-                                <th>الهوست</th>
-                                <th>اليوزر</th>
-                                <th>الباسورد</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>http://yaspro900.com:80</td><td>4c:57:39:2c:2a:2a</td><td>5147258745</td></tr>
-                            <tr><td>http://hydra.st:80</td><td>ammar33</td><td>670990</td></tr>
-                            <tr><td>http://maveniptv.net:80</td><td>nagy4158</td><td>elsafti8596</td></tr>
-                            <tr><td>http://showplustv.pro:80</td><td>ismailaue2307</td><td>30246sm</td></tr>
-                            <tr><td>http://4kgood.org:8080</td><td>4o48up5evz</td><td>r4fiast66u</td></tr>
-                            <tr><td>http://4kvip.ottc.pro:80</td><td>Hassan</td><td>QNICMDZTNB</td></tr>
-                            <tr><td>http://pl-ott.com:80</td><td>2566643396</td><td>8918121989</td></tr>
-                            <tr><td>http://panel.pro2box.cc:80</td><td>456876</td><td>bpMnYZA</td></tr>
-                            <tr><td>http://20tv-str.cc:80</td><td>5f547a57fe08</td><td>397497f776</td></tr>
-                            <tr><td>http://mmglplus.xyz:8089</td><td>djoudi34</td><td>020825</td></tr>
-                            <tr><td>http://stronger8k.vip:80</td><td>7b81bb3ace8c</td><td>84111dead2</td></tr>
-                            <tr><td>http://crystal.ottc.pro:80</td><td>TAZGCR9T1N</td><td>9PB5VPINQH</td></tr>
-                            <tr><td>http://cxz.orannge.net:8080</td><td>999566149248145</td><td>064473509141017</td></tr>
-                            <tr><td>http://clicktv1.live:2082</td><td>Jamalabonassir</td><td>62389282</td></tr>
-                            <tr><td>http://sawa2026.vip:80</td><td>ALHAMOLY8</td><td>5020202601</td></tr>
-                            <tr><td>http://live.mypythontv.com:2052</td><td>faycal7939</td><td>20222022</td></tr>
-                            <tr><td>http://mhiptv.info:2095</td><td>reds320</td><td>38654912</td></tr>
-                            <tr><td>http://xtvip.net:80</td><td>Cx5000</td><td>Cx5100</td></tr>
-                            <tr><td>http://dana-tv.com:8080</td><td>saadaxcharara</td><td>sa389472</td></tr>
-                            <tr><td>http://blue4k.net:8080</td><td>21007156718296</td><td>29444755188899</td></tr>
-                            <tr><td>http://crystalott.org:80</td><td>MZB0CDVHUX</td><td>TNBIF5DUBQ</td></tr>
-                            <tr><td>http://xvip.pro:80</td><td>Mkamal387</td><td>K0404934387</td></tr>
-                            <tr><td>http://vlc.news:80</td><td>e1orut4v6yff</td><td>ivigc9xwz4x1</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <div class="data-box" id="box-xtream"></div>
         </div>
 
+        <!-- تطبيق Tidal -->
         <div class="app-card" id="card-tidal">
-            <div class="logo-wrapper" onclick="revealData('tidal')">
-                <img src="https://i.imgur.com/uC5UjP1.png" alt="Tidal Music" class="app-logo">
+            <div class="logo-wrapper" onclick="revealOneData('tidal')">
+                <img src="https://img.icons8.com/ios-filled/120/ffffff/tidal.png" alt="Tidal Music" class="app-logo" style="background:#000; padding:10px;">
             </div>
             <h3>Tidal Premium</h3>
-            <div class="data-box" id="box-tidal">
-                <div class="account-line"><span>الايميل:</span> automation121@thabma.space <br> <span>الباسورد:</span> Oxaam524179#</div>
-                <div class="account-line"><span>الايميل:</span> automation119@thabma.space <br> <span>الباسورد:</span> Oxaam524179#</div>
-                <div class="account-line"><span>الايميل:</span> automation115@thabma.space <br> <span>الباسورد:</span> Oxaam524179#</div>
-            </div>
+            <div class="data-box" id="box-tidal"></div>
         </div>
 
+        <!-- تطبيق Crunchyroll -->
         <div class="app-card" id="card-crunchy">
-            <div class="logo-wrapper" onclick="revealData('crunchy')">
-                <img src="https://i.imgur.com/mO24L4o.png" alt="Crunchyroll" class="app-logo">
+            <div class="logo-wrapper" onclick="revealOneData('crunchy')">
+                <img src="https://img.icons8.com/color/120/crunchyroll.png" alt="Crunchyroll" class="app-logo">
             </div>
             <h3>Crunchyroll</h3>
-            <div class="data-box" id="box-crunchy">
-                <div class="account-line"><span>الايميل:</span> tantrum29@gdavo.space <br> <span>الباسورد:</span> Oxaam524179#</div>
-                <div class="account-line"><span>الايميل:</span> tantrum35@gdavo.space <br> <span>الباسورد:</span> Oxaam524179#</div>
-                <div class="account-line"><span>الايميل:</span> karnchieoxaam428@gmail.com <br> <span>الباسورد:</span> Oxaam524179#</div>
-            </div>
+            <div class="data-box" id="box-crunchy"></div>
         </div>
 
+        <!-- تطبيق Netflix -->
+        <div class="app-card disabled-coming-soon">
+            <div class="logo-wrapper">
+                <img src="https://img.icons8.com/color/120/netflix-desktop.png" alt="Netflix" class="app-logo">
+            </div>
+            <h3>Netflix</h3>
+            <div class="coming-soon-text">انتظرونا غداً 👋</div>
+            <div class="duration-text">مدة التفعيل: ساعة من النزول</div>
+        </div>
+
+    </div>
+
+    <!-- الزرار الجديد المخصص لتفعيل الشاشات تحت الكروت -->
+    <div class="telegram-action-container">
+        <a href="https://t.me/Z3Z3Sports" target="_blank" class="tg-btn">
+            تفعيل Netflix و IPTV للشاشة على التليجرام 📺
+        </a>
     </div>
 </div>
 

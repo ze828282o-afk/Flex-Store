@@ -21,11 +21,10 @@ body {
 
 .container {
     width: 100%;
-    max-width: 900px;
+    max-width: 700px;
     margin-top: 20px;
 }
 
-/* الهيدر والشعار الرئيسي للتليجرام */
 .main-logo-container {
     text-align: center;
     margin-bottom: 40px;
@@ -47,9 +46,10 @@ body {
 
 h1 {
     color: var(--gold-dark);
-    font-size: 2.3rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     margin: 15px 0 5px 0;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    letter-spacing: 1px;
 }
 
 .subtitle {
@@ -60,7 +60,6 @@ h1 {
     line-height: 1.6;
 }
 
-/* شبكة لوجوهات التطبيقات */
 .apps-grid {
     display: flex;
     flex-direction: column;
@@ -88,8 +87,6 @@ h1 {
     height: 90px;
     border-radius: 20px;
     border: 2px solid #333;
-    background-color: #000;
-    padding: 5px;
     transition: 0.3s ease;
 }
 
@@ -105,7 +102,6 @@ h1 {
     font-size: 1.2rem;
 }
 
-/* صناديق البيانات (مخفية في البداية) */
 .data-box {
     display: none;
     margin-top: 20px;
@@ -121,48 +117,73 @@ h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* تصميم قفل الكارت عند انتهاء المحاولة */
+.account-line {
+    background: #181818;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 1rem;
+    border-right: 4px solid var(--gold-dark);
+    text-align: left;
+    cursor: pointer;
+    color: #fff;
+}
+.account-line span { color: var(--gold-dark); font-family: 'Segoe UI'; }
+
 .app-card.disabled {
-    opacity: 0.5;
+    opacity: 0.4;
 }
 .app-card.disabled .logo-wrapper {
     cursor: not-allowed;
     filter: grayscale(100%);
 }
-.app-card.disabled .logo-wrapper:hover .app-logo {
-    transform: none;
-    border-color: #333;
-    box-shadow: none;
+
+.disabled-coming-soon {
+    border: 1px solid #3a0d0d;
+    background: linear-gradient(145deg, #141414, #1c0f0f);
+}
+.disabled-coming-soon .app-logo {
+    filter: grayscale(30%);
+}
+.coming-soon-text {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+.duration-text {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 5px;
 }
 
-/* نصوص التفعيل وجدول الاكستريم */
-.account-line {
-    background: #181818;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 6px;
-    font-family: monospace;
-    font-size: 0.95rem;
-    border-right: 4px solid var(--gold-dark);
-    text-align: left;
-    cursor: pointer;
+/* ستايل زرار التليجرام الجديد للشاشات */
+.telegram-action-container {
+    margin-top: 35px;
+    text-align: center;
 }
-.account-line span { color: var(--gold-dark); font-family: 'Segoe UI'; }
 
-.search-container { margin-bottom: 10px; }
-.search-container input {
-    width: 100%; padding: 10px; background: #161616; border: 1px solid #333;
-    border-radius: 6px; color: #fff; outline: none; box-sizing: border-box;
+.tg-btn {
+    display: block;
+    background: linear-gradient(135deg, var(--gold-dark), #aa7c11);
+    color: #000;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gold-bright);
 }
-.search-container input:focus { border-color: var(--gold-dark); }
 
-.table-scroll { overflow-x: auto; max-height: 250px; overflow-y: auto; }
-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 0.9rem; }
-th, td { padding: 10px; border-bottom: 1px solid #222; }
-th { background: #151515; color: var(--gold-dark); }
-tr:hover { background: #161616; cursor: pointer; }
+.tg-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+    background: linear-gradient(135deg, #ffe066, var(--gold-dark));
+}
 
-/* التوست */
 .toast {
     position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
     background-color: var(--gold-dark); color: #000; padding: 12px 24px;

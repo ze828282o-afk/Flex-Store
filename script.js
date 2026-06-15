@@ -1,70 +1,81 @@
+const database = {
+    xtream: [
+        { host: "http://yaspro900.com:80", user: "4c:57:39:2c:2a:2a", pass: "5147258745" },
+        { host: "http://hydra.st:80", user: "ammar33", pass: "670990" },
+        { host: "http://maveniptv.net:80", user: "nagy4158", pass: "elsafti8596" },
+        { host: "http://showplustv.pro:80", user: "ismailaue2307", pass: "30246sm" },
+        { host: "http://4kgood.org:8080", user: "4o48up5evz", pass: "r4fiast66u" },
+        { host: "http://4kvip.ottc.pro:80", user: "Hassan", pass: "QNICMDZTNB" },
+        { host: "http://pl-ott.com:80", user: "2566643396", pass: "8918121989" },
+        { host: "http://panel.pro2box.cc:80", user: "456876", pass: "bpMnYZA" }
+    ],
+    tidal: [
+        { email: "automation121@thabma.space", pass: "Oxaam524179#" },
+        { email: "automation119@thabma.space", pass: "Oxaam524179#" },
+        { email: "automation115@thabma.space", pass: "Oxaam524179#" }
+    ],
+    crunchy: [
+        { email: "tantrum29@gdavo.space", pass: "Oxaam524179#" },
+        { email: "tantrum35@gdavo.space", pass: "Oxaam524179#" },
+        { email: "karnchieoxaam428@gmail.com", pass: "Oxaam524179#" }
+    ]
+};
+
 document.addEventListener('DOMContentLoaded', function() {
-    // تشغيل فحص الأجهزة المحظورة لهذا اليوم فور فتح الصفحة
     checkDailyLimits();
-
-    // خاصية البحث جوه جدول الـ IPTV
-    const iptvSearch = document.getElementById('iptvSearch');
-    if (iptvSearch) {
-        iptvSearch.addEventListener('keyup', function() {
-            let filter = this.value.toLowerCase();
-            let rows = document.querySelectorAll('#iptvTable tbody tr');
-            rows.forEach(row => {
-                row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none';
-            });
-        });
-    }
-
-    // نسخ الحسابات عند الضغط عليها تلقائياً
-    document.querySelectorAll('.account-line').forEach(item => {
-        item.addEventListener('click', function() {
-            navigator.clipboard.writeText(this.innerText).then(() => {
-                showToast("تم نسخ الحساب بنجاح! 📋");
-            });
-        });
-    });
-    
-    // نسخ بيانات صف الاكستريم عند الضغط عليه
-    document.querySelectorAll('#iptvTable tbody tr').forEach(row => {
-        row.addEventListener('click', function() {
-            let host = this.cells[0].innerText;
-            let user = this.cells[1].innerText;
-            let pass = this.cells[2].innerText;
-            let fullData = `Host: ${host}\nUser: ${user}\nPass: ${pass}`;
-            navigator.clipboard.writeText(fullData).then(() => {
-                showToast("تم نسخ بيانات الاكستريم! 🌍");
-            });
-        });
-    });
 });
 
-// دالة إظهار البيانات عند الضغط على اللوجو مع تفعيل الحظر اليومي للجهاز
-function revealData(appType) {
+function revealOneData(appType) {
     const today = new Date().toDateString();
     
-    // الفحص لو الجهاز أخد التفعيل ده النهاردة بالفعل
     if (localStorage.getItem(`${appType}_claimed_${today}`)) {
-        showToast("عذراً! لقد حصلت على تفعيل هذا التطبيق اليوم بالفعل. عد غداً! 🔒");
+        showToast("عذراً! لقد حصلت على حسابك لهذا اليوم بالفعل. عد غداً! 🔒");
         return;
     }
 
-    // إظهار صندوق البيانات الخاص بالتطبيق
     const dataBox = document.getElementById(`box-${appType}`);
-    if (dataBox) {
+    const sourceList = database[appType];
+
+    if (dataBox && sourceList && sourceList.length > 0) {
+        const randomIndex = Math.floor(Math.random() * sourceList.length);
+        const selectedItem = sourceList[randomIndex];
+        
+        let htmlContent = "";
+
+        if (appType === 'xtream') {
+            const fullXtreamText = `Host: ${selectedItem.host}\nUser: ${selectedItem.user}\nPass: ${selectedItem.pass}`;
+            htmlContent = `
+                <div class="account-line" onclick="copyTextToClipboard(\`${fullXtreamText}\`)">
+                    <span>Host:</span> ${selectedItem.host}<br>
+                    <span>User:</span> ${selectedItem.user}<br>
+                    <span>Pass:</span> ${selectedItem.pass}
+                </div>
+                <p style="font-size:12px; color:#aaa; margin-top:5px;">اضغط على الصندوق لنسخ البيانات كاملة</p>
+            `;
+        } else {
+            const fullAccText = `Email: ${selectedItem.email}\nPass: ${selectedItem.pass}`;
+            htmlContent = `
+                <div class="account-line" onclick="copyTextToClipboard(\`${fullAccText}\`)">
+                    <span>الايميل:</span> ${selectedItem.email}<br>
+                    <span>الباسورد:</span> ${selectedItem.pass}
+                </div>
+                <p style="font-size:12px; color:#aaa; margin-top:5px;">اضغط على الصندوق لنسخ الحساب فوراً</p>
+            `;
+        }
+
+        dataBox.innerHTML = htmlContent;
         dataBox.style.display = 'block';
         
-        // حفظ عملية التفعيل في جهاز المستخدم لتاريخ اليوم
         localStorage.setItem(`${appType}_claimed_${today}`, "true");
         
-        showToast("تم فتح التفعيل! اضغط على البيانات لنسخها فوراً ⚡");
-        
-        // قفل الكارت بعد 3 ثواني عشان ميعرفش يشوفه تاني لو عمل ريفريش
+        showToast("⚡ تم سحب حسابك اليومي بنجاح! انسخه الآن.");
+
         setTimeout(() => {
             document.getElementById(`card-${appType}`).classList.add('disabled');
         }, 3000);
     }
 }
 
-// دالة فحص القيود اليومية وقفل الكروت المستعملة
 function checkDailyLimits() {
     const today = new Date().toDateString();
     const apps = ['xtream', 'tidal', 'crunchy'];
@@ -73,6 +84,12 @@ function checkDailyLimits() {
         if (localStorage.getItem(`${app}_claimed_${today}`)) {
             document.getElementById(`card-${app}`).classList.add('disabled');
         }
+    });
+}
+
+function copyTextToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showToast("تم نسخ البيانات للحافظة! 📋");
     });
 }
 
