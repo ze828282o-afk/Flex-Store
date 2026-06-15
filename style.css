@@ -1,11 +1,11 @@
 :root {
-    --bg-dark: #0f172a;
-    --card-bg: #1e293b;
-    --netflix-color: #e50914;
-    --iptv-color: #10b981;
-    --premium-color: #8b5cf6;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg-dark: #0a0a0a;
+    --card-bg: #141414;
+    --gold-bright: #f39c12;
+    --gold-dark: #d4af37;
+    --gold-glow: rgba(212, 175, 55, 0.3);
+    --text-main: #ffffff;
+    --text-muted: #aaaaaa;
 }
 
 body {
@@ -14,168 +14,157 @@ body {
     color: var(--text-main);
     margin: 0;
     padding: 20px;
-}
-
-header {
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-    border-radius: 16px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    color: #38bdf8;
-}
-
-header p {
-    color: var(--text-muted);
-    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    direction: rtl;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
 }
 
-/* قسم كروت البريميوم */
-.premium-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+/* الهيدر والشعار الرئيسي للتليجرام */
+.main-logo-container {
+    text-align: center;
     margin-bottom: 40px;
 }
 
-.card {
-    background-color: var(--card-bg);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.3s;
+.main-logo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid var(--gold-dark);
+    box-shadow: 0 0 20px var(--gold-glow);
+    transition: 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.main-logo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px var(--gold-bright);
 }
 
-.badge {
-    font-size: 0.8rem;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-weight: bold;
-    float: left;
+h1 {
+    color: var(--gold-dark);
+    font-size: 2.3rem;
+    margin: 15px 0 5px 0;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
 }
 
-.badge-netflix { background-color: rgba(229, 9, 20, 0.2); color: var(--netflix-color); }
-.badge-tidal { background-color: rgba(139, 92, 246, 0.2); color: var(--premium-color); }
-.badge-crunchy { background-color: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-
-.title-netflix { color: var(--netflix-color); margin-top: 0; }
-.title-tidal { color: var(--premium-color); margin-top: 0; }
-.title-crunchy { color: #f59e0b; margin-top: 0; }
-
-.desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
-.note { font-size: 0.8rem; color: var(--text-muted); margin-top: 5px; }
-
-.code-box {
-    font-size: 0.85rem;
-    background: rgba(0,0,0,0.2);
-    padding: 10px;
-    border-radius: 6px;
-    margin-top: 10px;
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
-.btn-telegram {
-    display: block;
-    text-align: center;
-    background-color: #229ED9;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 6px;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-/* قسم جدول الـ IPTV */
-.iptv-section {
-    background-color: var(--card-bg);
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-
-.iptv-header {
+/* شبكة لوجوهات التطبيقات */
+.apps-grid {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.iptv-header h2 { margin: 0; color: var(--iptv-color); }
-
-.search-box {
-    background-color: var(--bg-dark);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 300px;
-    outline: none;
+.app-card {
+    background-color: var(--card-bg);
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
-.table-container {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: right;
-}
-
-th, td {
-    padding: 12px 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-th {
-    background-color: rgba(0,0,0,0.2);
-    color: var(--iptv-color);
-}
-
-.copy-btn {
-    background-color: #334155;
-    color: #f1f5f9;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
+.logo-wrapper {
+    display: inline-block;
     cursor: pointer;
-    font-size: 0.85rem;
-    transition: 0.2s;
+    transition: 0.3s ease;
 }
 
-.copy-btn:hover {
-    background-color: #475569;
+.app-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    border: 2px solid #333;
+    background-color: #000;
+    padding: 5px;
+    transition: 0.3s ease;
 }
 
-.toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #10b981;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+.logo-wrapper:hover .app-logo {
+    transform: scale(1.05);
+    border-color: var(--gold-dark);
+    box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.app-card h3 {
+    margin: 10px 0 0 0;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* صناديق البيانات (مخفية في البداية) */
+.data-box {
     display: none;
-    z-index: 1000;
+    margin-top: 20px;
+    background-color: #0d0d0d;
+    border: 1px dashed var(--gold-dark);
+    border-radius: 12px;
+    padding: 15px;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* تصميم قفل الكارت عند انتهاء المحاولة */
+.app-card.disabled {
+    opacity: 0.5;
+}
+.app-card.disabled .logo-wrapper {
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+.app-card.disabled .logo-wrapper:hover .app-logo {
+    transform: none;
+    border-color: #333;
+    box-shadow: none;
+}
+
+/* نصوص التفعيل وجدول الاكستريم */
+.account-line {
+    background: #181818;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    border-right: 4px solid var(--gold-dark);
+    text-align: left;
+    cursor: pointer;
+}
+.account-line span { color: var(--gold-dark); font-family: 'Segoe UI'; }
+
+.search-container { margin-bottom: 10px; }
+.search-container input {
+    width: 100%; padding: 10px; background: #161616; border: 1px solid #333;
+    border-radius: 6px; color: #fff; outline: none; box-sizing: border-box;
+}
+.search-container input:focus { border-color: var(--gold-dark); }
+
+.table-scroll { overflow-x: auto; max-height: 250px; overflow-y: auto; }
+table { width: 100%; border-collapse: collapse; text-align: right; font-size: 0.9rem; }
+th, td { padding: 10px; border-bottom: 1px solid #222; }
+th { background: #151515; color: var(--gold-dark); }
+tr:hover { background: #161616; cursor: pointer; }
+
+/* التوست */
+.toast {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background-color: var(--gold-dark); color: #000; padding: 12px 24px;
+    border-radius: 8px; font-weight: bold; display: none; z-index: 1000;
 }
